@@ -2,7 +2,9 @@
 
 ***Auth:mub2023***
 
-agiarism is strictly forbidden and will result in removal from the program.
+![image](https://live.staticflickr.com/4026/4706673930_a2b991c47e_b.jpg)
+
+
 Requirements
 General
 Allowed editors: vi, vim, emacs
