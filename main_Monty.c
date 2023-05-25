@@ -9,7 +9,7 @@ char **Gvar = NULL;
  */
 int main(int argc, char **argv)
 {
-	FILE *OFile;
+	FILE *OFile = NULL;
 	int Sexit = EXIT_SUCCESS;
 
 	if (argc != 2)

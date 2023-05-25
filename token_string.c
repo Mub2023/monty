@@ -48,7 +48,7 @@ char **strtow(char *str, char *delims)
 	return (words);
 }
 /**
- * is_delim - checks if stream has delimitor char.
+ * is_delims - checks if stream has delimitor char.
  * @ch: char in stream.
  * @delims: pointer to null terminted array
  * Return: 1 (SUCCESS) 0 (FAILURE)
