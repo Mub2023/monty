@@ -1,4 +1,9 @@
 #include "monty.h"
+int use_errors(void);
+int malloc_failed(void);
+int open_error(char *Fname);
+int no_integer(unsigned int line_number);
+int no_integer(unsigned int line_number);
 /**
  * use_errors - Prints use error on stderr.
  * Return: Always EXIT_FAILURE always.

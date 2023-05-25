@@ -15,6 +15,8 @@
 #include <fcntl.h>
 #include <stdarg.h>
 #include <assert.h>
+#include <errno.h>
+#include <limits.h>
 
 #define STACK 0
 #define QUEUE 1
