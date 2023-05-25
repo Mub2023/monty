@@ -101,6 +101,6 @@ void set_op_tok_error(int error_code);
 int mode_check(stack_t *stack);
 void free_stack(stack_t **stack);
 int init_stack(stack_t **stack);
-int getline (char **lineptr, size_t *n, FILE *stream)
+
 
 #endif /* thanks bye*/
