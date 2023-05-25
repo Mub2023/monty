@@ -1,7 +1,7 @@
 #ifndef monty_h
 #define monty_h
 
-#define _XOPEN_SOURCE 700
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
