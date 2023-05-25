@@ -41,7 +41,7 @@ void M_div(stack_t **stack, unsigned int line_number)
 		set_op_tok_error(small_stack(line_number, "div"));
 		return;
 	}
-	if ((*stack)->next->next->n == 0)
+	if ((*stack)->next->n == 0)
 	{
 		set_op_tok_error(div_by_zero(line_number));
 		return;
@@ -77,6 +77,12 @@ void M_mod(stack_t **stack, unsigned int line_number)
 		set_op_tok_error(small_stack(line_number, "mod"));
 		return;
 	}
+	if ((*stack)->next->n == 0)
+	{
+		set_op_tok_error(div_by_zero(line_number));
+			return;
+	}
+
 	(*stack)->next->next->n %= (*stack)->next->n;
 	pop(stack, line_number);
 }
