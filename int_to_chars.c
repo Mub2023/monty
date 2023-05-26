@@ -1,80 +1,47 @@
-#include "monty.h"
+#include"monty.h"
 /**
- * Gint - gets a chars pointers to new string contains int.
- * @num: number to convert.
- * Return: the char pointer to new created string,or NULL.
+ * M_rotl - A function that rotates the stack to the top.
+ * @stack: The pointer to the stack list.
+ * @line_number: The line number of a Monty bytecodes file.
  */
-char *Gint(int num)
+void M_rotl(stack_t **stack, unsigned int line_number)
 {
-	unsigned int t;
-	int len = 0;
-	long num_1 = 0;
-	char *R;
+	int temp;
+	stack_t *c = *stack;
+	(void)line_number;
 
-	t = _abs(num);
-	len = get_num_len(t, 10);
-
-	if (num < 0 || num_1 < 0)
-		len++;
-	R = malloc(len + 1);
-	if (!R)
-		return (NULL);
-	fill_num_buff(t, 10, R, len);
-	if (num < 0 || num_1 < 0)
-		R[0] = '-';
-
-	return (R);
-}
-/**
- * _abs - gets the absolute of value of an integer.
- * @x: intger to get absolute vale of .
- * Return: unsigned int abs of x.
- */
-unsigned int _abs(int x)
-{
-	if (x < 0)
-		return (-(unsigned int)x);
-	return ((unsigned int)x);
-}
-/**
- * get_num_len - gets length of numbers needed for unsigned int.
- * @num: number to get length of .
- * @base: base of number to representations used by buffer.
- * Return: intger contains length.
- */
-int get_num_len(unsigned int num, unsigned int base)
-{
-	int len = 1;
-
-	while (num > base - 1)
+	if (*stack)
 	{
-		len++;
-		num /= base;
+		temp = c->n;
+		while (c->next != NULL)
+		{
+			c->n = c->next->n;
+			c = c->next;
+		}
+		c->n = temp;
 	}
-	return (len);
 }
 /**
- * fill_num_buff - fills buffer with correct numbers up to base 36.
- * @num: an input int.
- * @base: is base number used to convert.
- * @buff: buffer to fill with result of convertion.
- * @buff_size: size of the buffer.
- * Retrun: Always 0 (SUCCESS).
+ * M_rotr - A function that rotates the stack to the bottom.
+ * @stack: The pointer to the stack list.
+ * @line_number: The line number of a Monty bytecodes file.
  */
-void fill_num_buff(unsigned int num, unsigned int base,
-		char *buff, int buff_size)
+void M_rotr(stack_t **stack, unsigned int line_number)
 {
-	int R, x = buff_size - 1;
+	int temp;
+	stack_t *c = *stack;
+	(void)line_number;
 
-	buff[buff_size] = '\0';
-	while (x >= 0)
+	if (*stack)
 	{
-		R = num % base;
-		if (R > 9)
-			buff[x] = R + 87;
-		else
-			buff[x] = R + '0';
-		num /= base;
-		x--;
+		while (c->next != NULL)
+			c = c->next;
+		temp = c->n;
+		while (c->prev != NULL)
+		{
+			c->n = c->prev->n;
+			c = c->prev;
+		}
+		c->n = temp;
 	}
 }
